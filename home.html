@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="zh-cn">
+	<head>
+    	<title>主页</title>
+		<style>
+			input {
+				width: 540px; height: 40px;
+				position: absolute; left: 45%; top: 35%;
+				transform: translate(-45%, -35%);
+				border: 1px solid #ccc;
+			}
+			button {
+				width: 102px; height: 44px;
+				position: absolute; left: 64%; top: 35%;
+				transform: translate(-64%, -35%);
+				background-color:aliceblue;
+				color: #5F5F5F;
+				border-style: ridge;
+				border: 1px solid #ccc; 
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" maxlength="128" style="font-size:18px;" id="searchbox">
+		<button type="button" style="font-size:16px;" onclick="search()">搜索</button>
+		<script>
+			function search() {
+                if (document.getElementById("searchbox").value != "") window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("searchbox").value;
+			}
+			window.onload = function enter() {
+				document.getElementById("searchbox").onkeydown = function (event) {
+                    if (event.keyCode == 13) search();
+				}
+            }
+		</script>
+	</body>
+</html>
