@@ -17,7 +17,7 @@
 				border: 1px solid #ccc;
 			}
             select {
-                width: 66px; height: 40px;
+                width: 66px; height: 30px;
             }
 			button {
                 width: 102px; height: 44px;
@@ -35,8 +35,8 @@
 		<input type="text" maxlength="128" style="font-size:18px;" id="searchbox">
 		<select id="engine">
 			<option value="baidu">百度</option>
-            <option>Bilibili</option>
 			<option value="bing">Bing</option>
+            <option value="bilibili">Bilibili</option>
 			<option value="google">Google</option>
 			<option value="github">Github</option>
 		</select>
@@ -46,11 +46,11 @@
                 if (document.getElementById("engine").value == "baidu") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "bilibili") {
-                    if (document.getElementById("searchbox").value != "") window.location.href = "https://github.com/search?q=" + document.getElementById("searchbox").value;
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://search.bilibili.com/all?keyword=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "bing") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://cn.bing.com/search?q=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "google") {
-                    if (document.getElementById("searchbox").value != "") window.location.href = "https://www.google.com/search?q=a" + document.getElementById("searchbox").value;
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://www.google.com/search?q=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "github") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://github.com/search?q=" + document.getElementById("searchbox").value;
                 }
