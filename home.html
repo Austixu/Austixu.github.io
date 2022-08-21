@@ -4,16 +4,25 @@
 	<head>
     	<title>主页</title>
 		<style>
+            p {
+                font-size: 98px; font-weight: 200;
+                position: fixed; left: 48%; top: 8%;
+                transform: translate(-48%, -8%);
+                user-select: none;
+            }
 			input {
 				width: 540px; height: 40px;
-				position: absolute; left: 45%; top: 35%;
-				transform: translate(-45%, -35%);
+				position: fixed; left: 45%; top: 38%;
+				transform: translate(-45%, -38%);
 				border: 1px solid #ccc;
 			}
+            select {
+                width: 66px; height: 40px;
+            }
 			button {
                 width: 102px; height: 44px;
-                position: absolute; left: 64%; top: 35%;
-                transform: translate(-64%, -35%);
+                position: fixed; left: 64%; top: 38%;
+                transform: translate(-64%, -38%);
                 background-color: #58ACFA;
                 color: azure;
                 border-style: ridge;
@@ -22,16 +31,50 @@
 		</style>
 	</head>
 	<body>
+		<p>Index</p>
 		<input type="text" maxlength="128" style="font-size:18px;" id="searchbox">
+		<select id="engine">
+			<option value="baidu">百度</option>
+			<option value="bing">Bing</option>
+			<option value="google">Google</option>
+			<option value="github">Github</option>
+		</select>
 		<button type="button" style="font-size:16px;" onclick="search()">搜索</button>
 		<script>
 			function search() {
-                if (document.getElementById("searchbox").value != "") window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("searchbox").value;
+                if (document.getElementById("engine").value == "baidu") {
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("searchbox").value;
+                } else if (document.getElementById("engine").value == "bing") {
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://cn.bing.com/search?q=" + document.getElementById("searchbox").value;
+                } else if (document.getElementById("engine").value == "google") {
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://www.google.com/search?q=a" + document.getElementById("searchbox").value;
+                } else if (document.getElementById("engine").value == "github") {
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://github.com/search?q=" + document.getElementById("searchbox").value;
+                }        
 			}
 			window.onload = function enter() {
 				document.getElementById("searchbox").onkeydown = function (event) {
                     if (event.keyCode == 13) search();
 				}
+            }
+            function getCookie(string c_name) {
+                if (document.cookie.length > 0) {
+                    c_start = document.cookie.indexOf(c_name + "=");
+                    if (c_start != -1) {
+                        c_start = c_start + c_name.length + 1;
+                        c_end = document.cookie.indexOf(";", c_start);
+                        if (c_end == -1) {
+                            c_end = document.cookie.length;
+                            return unescape(document.cookie.substring(c_start, c_end));
+                        }
+                    }
+                }
+            }
+            function setCookie(c_name, value, expiredays) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + expiredays);
+                document.cookie = c_name + "=" + escape(value) +
+                    ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
             }
 		</script>
 	</body>
