@@ -35,6 +35,7 @@
 		<input type="text" maxlength="128" style="font-size:18px;" id="searchbox">
 		<select id="engine">
 			<option value="baidu">百度</option>
+            <option>Bilibili</option>
 			<option value="bing">Bing</option>
 			<option value="google">Google</option>
 			<option value="github">Github</option>
@@ -44,37 +45,20 @@
 			function search() {
                 if (document.getElementById("engine").value == "baidu") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://www.baidu.com/s?wd=" + document.getElementById("searchbox").value;
+                } else if (document.getElementById("engine").value == "bilibili") {
+                    if (document.getElementById("searchbox").value != "") window.location.href = "https://github.com/search?q=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "bing") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://cn.bing.com/search?q=" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "google") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://www.google.com/search?q=a" + document.getElementById("searchbox").value;
                 } else if (document.getElementById("engine").value == "github") {
                     if (document.getElementById("searchbox").value != "") window.location.href = "https://github.com/search?q=" + document.getElementById("searchbox").value;
-                }        
+                }
 			}
 			window.onload = function enter() {
 				document.getElementById("searchbox").onkeydown = function (event) {
                     if (event.keyCode == 13) search();
 				}
-            }
-            function getCookie(string c_name) {
-                if (document.cookie.length > 0) {
-                    c_start = document.cookie.indexOf(c_name + "=");
-                    if (c_start != -1) {
-                        c_start = c_start + c_name.length + 1;
-                        c_end = document.cookie.indexOf(";", c_start);
-                        if (c_end == -1) {
-                            c_end = document.cookie.length;
-                            return unescape(document.cookie.substring(c_start, c_end));
-                        }
-                    }
-                }
-            }
-            function setCookie(c_name, value, expiredays) {
-                var exdate = new Date();
-                exdate.setDate(exdate.getDate() + expiredays);
-                document.cookie = c_name + "=" + escape(value) +
-                    ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
             }
 		</script>
 	</body>
