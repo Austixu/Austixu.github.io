@@ -1,5 +1,6 @@
 !function () {
     function s(n) {
+        function u() { }
         var r = Object.create(null);
         return function (e) {
             var t = c(e) ? e : JSON.stringify(e); return r[t] || (r[t] = n(e))
