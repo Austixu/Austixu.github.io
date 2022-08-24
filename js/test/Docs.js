@@ -29,5 +29,6 @@ var token = 0;
             for (; fContent[token] == '\n'; token++);
 
         }
+        document.write(hTt);
     }
 }
