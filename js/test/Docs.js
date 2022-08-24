@@ -17,7 +17,7 @@ var token = 0;
     }
     var hL = 0;
     var hTt;
-    for (; ;) {
+    for (; fContent[token] != '\0';) {
         if (fContent[token] == '#') {  
             ++hL; ++token;
         } else {
