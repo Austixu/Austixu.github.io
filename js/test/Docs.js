@@ -1,17 +1,12 @@
-var token = 0;
 !function () {
+    var token = 0;
     if (window.FileReader) {
-        var fUrl = window.location.href;
-        let hReq = new XMLHttpRequest();
-        hReq.open("get", fUrl+".docj", true);
-        hReq.responseType = "blob";
-        hReq.onload = function () { }
+        var fPath = window.location.pathname;
         if (this.status == 200) {
             var fRead = new FileReader()
             fRead.onload = function () { }
-            fRead.readAsText(this.response);
+            fRead.readAsText("/"+fPath);
             var fContent = fRead.result;
-            alert(fContent);
         } else {
             return;
         }
@@ -28,7 +23,6 @@ var token = 0;
             }
             token++;
             for (; fContent[token] == '\n'; token++);
-
         }
     }
     document.write(hTt);
