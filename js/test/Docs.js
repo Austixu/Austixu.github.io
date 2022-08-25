@@ -11,13 +11,14 @@ var token = 0;
             fRead.onload = function () { }
             fRead.readAsText(this.response);
             var fContent = fRead.result;
+            alert(fContent);
         } else {
             return;
         }
     }
     var hL = 0;
     var hTt;
-    for (; fContent[token] != '\0';) {
+    for (var i = 0;i<100;i++) {
         if (fContent[token] == '#') {  
             ++hL; ++token;
         } else {
@@ -29,6 +30,6 @@ var token = 0;
             for (; fContent[token] == '\n'; token++);
 
         }
-        document.write(hTt);
     }
+    document.write(hTt);
 }
