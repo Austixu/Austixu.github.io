@@ -11,5 +11,5 @@
             return;
         }
     }
-    console.log(fContent);
+    console.log("a");
 }
